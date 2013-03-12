@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# install .bashrc
+if [ x"$OS" != x'Windows_NT' ]; then
+    ln -s ~/.files/bashrc ~/.bashrc
+else
+    echo 'source ~/.files/bashrc' >| ~/.bashrc
+fi
