@@ -37,3 +37,14 @@ else
         lesskey -o ~/.less -- ./lesskey
     fi
 fi
+
+# install .inputrc
+if [ -f ~/.inputrc ]; then
+    echo 'Skipping ~/.inputrc ...'
+else
+    if [ x"$OS" != x'Windows_NT' ]; then
+        ln -s ~/.files/inputrc ~/.inputrc
+    else
+        echo '$include ~/.files/inputrc' > ~/.inputrc
+    fi
+fi
