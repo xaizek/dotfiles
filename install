@@ -6,3 +6,10 @@ if [ x"$OS" != x'Windows_NT' ]; then
 else
     echo 'source ~/.files/bashrc' >| ~/.bashrc
 fi
+
+# install .profile
+if [ x"$OS" != x'Windows_NT' ]; then
+    ln -s ~/.files/profile ~/.profile
+else
+    echo 'source ~/.files/profile' >| ~/.profile
+fi
