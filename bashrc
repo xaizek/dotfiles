@@ -171,7 +171,7 @@ function prompt-command()
 }
 
 # set prompt-command() function to be executed prior to printing prompt
-PROMPT_COMMAND=prompt-command
+PROMPT_COMMAND='prompt-command'
 
 # ==============================================================================
 # complete git aliases as if they were expanded
