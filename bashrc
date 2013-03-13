@@ -127,7 +127,7 @@ complete -G '*.1' showman
 # ==============================================================================
 # bash behaviour configuration
 
-# append to history files instead of overwriting it when shell exits
+# append to history file instead of overwriting it when shell exits
 shopt -s histappend
 
 # don't overwrite existing files on redirection (require >| instead of >)
