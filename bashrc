@@ -137,7 +137,9 @@ set -o noclobber
 shopt -s autocd
 
 # automatically correct minor spelling errors in arguments of cd command
-shopt -s cdspell
+if shopt | grep -q cdspell; then
+    shopt -s cdspell
+fi
 
 # the number of commands to remember in the command history
 export HISTSIZE='100000'
