@@ -1,4 +1,11 @@
 # ==============================================================================
+# profile is loaded check
+
+if [ -z "$PROFILE_IS_LOADED" ]; then
+    source ~/.profile
+fi
+
+# ==============================================================================
 # bash completion
 
 # use bash-completion, if available

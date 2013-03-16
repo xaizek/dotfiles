@@ -1,4 +1,9 @@
 # ==============================================================================
+# script load indicator
+
+export PROFILE_IS_LOADED=yes
+
+# ==============================================================================
 # load bash configuration for this machine
 # it is loaded at the very beginning to allow overwriting of its settings
 
