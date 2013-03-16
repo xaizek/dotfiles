@@ -1,4 +1,13 @@
 # ==============================================================================
+# sourcing guard begin
+# prevents double sourcing from the profile
+
+if [ -n "$BASHRC_IS_LOADED" ]; then
+    return
+fi
+BASHRC_IS_LOADED=yes
+
+# ==============================================================================
 # profile is loaded check
 
 if [ -z "$PROFILE_IS_LOADED" ]; then
@@ -234,6 +243,11 @@ eval "$(alias -p | sed -ne 's/alias \([^=]\+\)='\''\(git [^ ]*\) *.*'\''/registe
 if [ -f ~/.bashrc_local ]; then
     source ~/.bashrc_local
 fi
+
+# ==============================================================================
+# sourcing guard end
+
+unset BASHRC_IS_LOADED
 
 # ==============================================================================
 
