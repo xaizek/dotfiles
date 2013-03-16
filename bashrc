@@ -150,7 +150,9 @@ shopt -s histappend
 set -o noclobber
 
 # thread directory paths as arguments to an implicit cd command
-shopt -s autocd
+if shopt | grep -q autocd; then
+    shopt -s autocd
+fi
 
 # automatically correct minor spelling errors in arguments of cd command
 if shopt | grep -q cdspell; then
