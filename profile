@@ -4,7 +4,7 @@
 
 # source ~/.bashrc file if it exists
 if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
+    . ~/.bashrc
 fi
 
 # ==============================================================================
