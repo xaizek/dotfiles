@@ -228,4 +228,4 @@ fi
 
 # ==============================================================================
 
-# vim: set textwidth=80 syntax+=.autofold :
+# vim: set filetype=sh textwidth=80 syntax+=.autofold :
