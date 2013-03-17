@@ -182,27 +182,31 @@ fi
 # ==============================================================================
 # always print command prompt on a new line
 
-# query terminal escape codes for default and red colors and for color reset
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    color_error="$(/usr/bin/tput setab 1)$(/usr/bin/tput setaf 7)"
-    color_error_off="$(/usr/bin/tput sgr0)"
+if [ "$OS" != Windows_NT ]; then
+
+    # query terminal escape codes for default and red colors and for color reset
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        color_error="$(/usr/bin/tput setab 1)$(/usr/bin/tput setaf 7)"
+        color_error_off="$(/usr/bin/tput sgr0)"
+    fi
+
+    # check cursor position and add new line if we're not in the first column
+    function prompt-command()
+    {
+        exec < /dev/tty
+        local OLDSTTY=$(stty -g)
+        stty raw -echo min 0
+        echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
+        stty $OLDSTTY
+        [[ ${CURPOS##*;} -gt 1 ]] && echo "${color_error}↵${color_error_off}"
+
+        echo -en "\033k\033\\"
+    }
+
+    # set prompt-command() function to be executed prior to printing prompt
+    PROMPT_COMMAND='prompt-command'
+
 fi
-
-# check cursor position and add new line if we're not in the first column
-function prompt-command()
-{
-    exec < /dev/tty
-    local OLDSTTY=$(stty -g)
-    stty raw -echo min 0
-    echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
-    stty $OLDSTTY
-    [[ ${CURPOS##*;} -gt 1 ]] && echo "${color_error}↵${color_error_off}"
-
-    echo -en "\033k\033\\"
-}
-
-# set prompt-command() function to be executed prior to printing prompt
-PROMPT_COMMAND='prompt-command'
 
 # ==============================================================================
 # complete git aliases as if they were expanded
