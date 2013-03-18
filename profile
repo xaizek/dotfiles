@@ -19,6 +19,13 @@ fi
 export PATH="$HOME/bin:$PATH"
 
 # ==============================================================================
+# less
+
+# make less search for its binary configuration files at ~/.less on all
+# platforms
+export LESSKEY="$HOME/.less"
+
+# ==============================================================================
 # load profile local settings for this machine
 
 # source ~/.profile_local file if it exists

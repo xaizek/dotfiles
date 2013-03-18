@@ -1,0 +1,35 @@
+# ==============================================================================
+# shell (or Emacs) like shortcuts for the line-edit mode
+
+#line-edit
+
+# go to the beginning of the line on Ctrl-A key
+^A home
+
+# go to the end of the line on Ctrl-E key
+^E end
+
+# move cursor one character to the right on Ctrl-F key
+^F right
+
+# move cursor one character to the right on Ctrl-B key
+^B left
+
+# delete a character to the right of the cursor on Ctrl-D key
+^D delete
+
+# remove a word to the left of the cursor on Ctrl-W key
+^W word-backspace
+
+# quit command-line mode on Escape key
+\e abort
+
+# recall previous history item on Ctrl-P key
+^P up
+
+# recall next history item on Ctrl-N key
+^N down
+
+# ==============================================================================
+
+# vim: set textwidth=80 syntax+=.autofold :
