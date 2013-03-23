@@ -17,9 +17,16 @@ fi
 # ==============================================================================
 # bash completion
 
-# use bash-completion, if available
-if [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
+# use bash-completion or at least git-bash-completion
+if [ "$OS" != Windows_NT ]; then
+    completion_file='/etc/bash_completion'
+else
+    completion_file="$HOME/bin/git-completion.bash"
+fi
+
+# use completion if available
+if [ -f "$completion_file" ]; then
+    source "$completion_file"
 fi
 
 # ==============================================================================
