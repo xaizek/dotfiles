@@ -1,27 +1,39 @@
 #!/bin/bash
 
 # install .bashrc
-if [ x"$OS" != x'Windows_NT' ]; then
-    ln -s ~/.files/bashrc ~/.bashrc
+if [ -f ~/.bashrc ]; then
+    echo 'Skipping ~/.bashrc ...'
 else
-    echo 'source ~/.files/bashrc' > ~/.bashrc
+    if [ x"$OS" != x'Windows_NT' ]; then
+        ln -s ~/.files/bashrc ~/.bashrc
+    else
+        echo 'source ~/.files/bashrc' > ~/.bashrc
+    fi
 fi
 
 # install .profile
-if [ x"$OS" != x'Windows_NT' ]; then
-    ln -s ~/.files/profile ~/.profile
+if [ -f ~/.profile ]; then
+    echo 'Skipping ~/.profile ...'
 else
-    echo 'source ~/.files/profile' > ~/.profile
+    if [ x"$OS" != x'Windows_NT' ]; then
+        ln -s ~/.files/profile ~/.profile
+    else
+        echo 'source ~/.files/profile' > ~/.profile
+    fi
 fi
 
 # install .lesskey
-if [ x"$OS" != x'Windows_NT' ]; then
-    ln -s ~/.files/lesskey ~/.lesskey
-fi
-
-# compile .lesskey to get .less
-if [ x"$OS" != x'Windows_NT' ]; then
-    lesskey
+if [ -f ~/.lesskey ]; then
+    echo 'Skipping ~/.lesskey ...'
 else
-    lesskey -o ~/.less -- ./lesskey
+    if [ x"$OS" != x'Windows_NT' ]; then
+        ln -s ~/.files/lesskey ~/.lesskey
+    fi
+
+    # compile .lesskey to get .less
+    if [ x"$OS" != x'Windows_NT' ]; then
+        lesskey
+    else
+        lesskey -o ~/.less -- ./lesskey
+    fi
 fi
