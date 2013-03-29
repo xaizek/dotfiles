@@ -4,14 +4,14 @@
 if [ x"$OS" != x'Windows_NT' ]; then
     ln -s ~/.files/bashrc ~/.bashrc
 else
-    echo 'source ~/.files/bashrc' >| ~/.bashrc
+    echo 'source ~/.files/bashrc' > ~/.bashrc
 fi
 
 # install .profile
 if [ x"$OS" != x'Windows_NT' ]; then
     ln -s ~/.files/profile ~/.profile
 else
-    echo 'source ~/.files/profile' >| ~/.profile
+    echo 'source ~/.files/profile' > ~/.profile
 fi
 
 # install .lesskey
