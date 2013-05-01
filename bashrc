@@ -119,6 +119,28 @@ function push()
     print-command-status
 }
 
+# pull current branch from a remote (default: parent if exists, origin
+# otherwise)
+function pull()
+{
+    if [ "$#" -eq "0" ]; then
+        if git remote | grep parent -q; then
+            local default_remote=parent
+        else
+            local default_remote=origin
+        fi
+        local remote="$default_remote"
+    elif [ "$#" -eq "1" ]; then
+        local remote="$1"
+    else
+        echo 'Usage: pull [remote (default: parent or origin)]'
+    fi
+
+    echo -e "\e[1;32m[ Pulling changes from the $remote repository ]\e[m"
+    git pull "$remote" "$(git rev-parse --symbolic-full-name HEAD)"
+    print-command-status
+}
+
 # ------------------------------------------------------------------------------
 # ls
 
