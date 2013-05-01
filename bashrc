@@ -103,6 +103,22 @@ alias gk='gitk --all&'
 # merge previous branch into current forcing creation of a merge commit
 alias merge='git merge --no-ff @{-1}'
 
+# push current branch to a remote (origin by default)
+function push()
+{
+    if [ "$#" -eq "0" ]; then
+        local remote='origin'
+    elif [ "$#" -gt "0" ]; then
+        local remote="$1"
+    else
+        echo 'Usage: push [remote (default: origin)]'
+    fi
+
+    echo -e "\e[1;32m[ Pushing changes to the \e[4m$remote\e[24m repository ]\e[m"
+    git push "$remote" "$(git rev-parse --symbolic-full-name HEAD)"
+    print-command-status
+}
+
 # ------------------------------------------------------------------------------
 # ls
 
