@@ -107,6 +107,9 @@ alias go='git checkout'
 # create and checkout a branch
 alias gob='git checkout -b'
 
+# create tracking copy of a remote branch and switch to it
+alias got='git checkout --track'
+
 # show information about git object
 alias gh='git show'
 
