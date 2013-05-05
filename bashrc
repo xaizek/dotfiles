@@ -68,6 +68,7 @@ alias :q='exit'
 # git
 
 # show repository status (staged/modified/untracked files)
+# NOTE: this alias hides GhostScript program
 alias gs='git status'
 
 # stage changes in a file
