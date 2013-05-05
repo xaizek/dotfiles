@@ -85,11 +85,18 @@ alias gc='git commit -v'
 # show differences between refs/tree/files
 alias gd='git diff'
 
+# show differences between refs/tree/files ignoring whitespace changes
+alias gdw='git diff -w'
+
 # show brief of differences between refs/tree/files
 alias gds='git diff --stat'
 
 # show cached (staged) differences between refs/tree/files
 alias gdc='git diff --cached'
+
+# show cached (staged) differences between refs/tree/files ignoring whitespace
+# changes
+alias gdcw='git diff --cached -w'
 
 # show brief of cached (staged) differences between refs/tree/files
 alias gdcs='git diff --cached --stat'
