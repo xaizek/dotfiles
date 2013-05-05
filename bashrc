@@ -39,7 +39,8 @@ fi
 # vim
 
 # open console vim with disabled support of X-server and not loading plugins
-alias v='vim -X --noplugin'
+alias e='vim -X --noplugin'
+alias v='e'
 
 # open files in tags of already running instance of gvim; without arguments just
 # runs new gvim
