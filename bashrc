@@ -20,6 +20,9 @@ fi
 # use bash-completion or at least git-bash-completion
 if [ "$OS" != Windows_NT ]; then
     completion_file='/etc/bash_completion'
+    if [ ! -f "$completion_file" ]; then
+        completion_file='/etc/profile.d/bash_completion.sh'
+    fi
 else
     completion_file="$HOME/bin/git-completion.bash"
 fi
