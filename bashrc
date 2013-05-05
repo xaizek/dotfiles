@@ -234,6 +234,9 @@ if [ "x$INSIDE_VIFM" != "x" ]; then
     PS1="[V]$PS1"
 fi
 
+# use light green to highlight the prompt
+PS1="\\[\033[32m\\]$PS1\\[\033[0m\\]"
+
 # ==============================================================================
 # always print command prompt on a new line
 
