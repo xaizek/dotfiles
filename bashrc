@@ -100,6 +100,9 @@ alias go='git checkout'
 # create and checkout a branch
 alias gob='git checkout -b'
 
+# show information about git object
+alias gh='git show'
+
 # show repository history using "hist" git alias
 alias ghi='git hist'
 
