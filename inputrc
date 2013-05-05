@@ -1,3 +1,6 @@
+# do completion on one <tab> press, not two
+set show-all-if-ambiguous On
+
 # recall only commands that start with given beginning on Up Arrow key
 "\e[A": history-search-backward
 "\eOA": history-search-backward
