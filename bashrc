@@ -228,10 +228,28 @@ export HISTCONTROL='erasedups'
 # ==============================================================================
 # command-line prompt customization
 
-# {vifm-parent-sign}{pwd}{user-type}{space}
-export PS1='[\w]\$ '
-if [ "x$INSIDE_VIFM" != "x" ]; then
-    PS1="[V]$PS1"
+# [{vifm-parent-sign}{parent-bash-shell-sign}*][{pwd}]{user-type}{space}
+if [ -n "$PS1" ]; then
+    export PS1="[\\w]\\$ "
+    if [ "x$INSIDE_VIFM" != "x" -o "x$VIFM_SHELL" = x$(( SHLVL - 1 )) ]; then
+        if [ "x$VIFM_SHELL" = x$(( SHLVL - 1 )) ]; then
+            buf='V'
+            for (( i = 0; i < SHLVL - VIFM_AT_SHELL; i++ )); do
+                buf="${buf}b"
+            done
+            PS1="[$buf]$PS1"
+        else
+            PS1="[V]$PS1"
+        fi
+        if [ -z "$VIFM_AT_SHELL" ]; then
+            export VIFM_AT_SHELL="$SHLVL"
+        fi
+        export VIFM_SHELL="$SHLVL"
+        unset INSIDE_VIFM
+    fi
+else
+    unset VIFM_SHELL
+    unset VIFM_AT_SHELL
 fi
 
 # use light green to highlight the prompt
