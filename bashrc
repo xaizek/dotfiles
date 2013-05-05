@@ -175,6 +175,10 @@ alias gdb='gdb -q'
 # start mutt in browser screen
 alias mutt='mutt -y'
 
+# vi-like shorthand for the man command with proper completion
+alias h='man'
+complete -F _man h
+
 # ------------------------------------------------------------------------------
 
 # ==============================================================================
