@@ -61,7 +61,8 @@ alias G='gvim'
 # vim-like short form of the make command
 alias mak='make'
 
-# vi-like command to quit shell
+# vi-like commands to quit shell
+alias q='exit'
 alias :q='exit'
 
 # ------------------------------------------------------------------------------
