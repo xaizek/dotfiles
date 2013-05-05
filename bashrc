@@ -103,6 +103,9 @@ alias gob='git checkout -b'
 # show information about git object
 alias gh='git show'
 
+# show information about git object with some statistic
+alias ghs='git show --stat'
+
 # show repository history using "hist" git alias
 alias ghi='git hist'
 
