@@ -163,6 +163,17 @@ function pull()
     print-command-status
 }
 
+# an utility function, which print success/fail message depending on exit code
+# returned by previous command
+function print-command-status()
+{
+    if [ $? -eq 0 ]; then
+        echo -e "\e[1;32m[ SUCCESS ]\e[m"
+    else
+        echo -e "\e[1;31m[ ERROR ]\e[m"
+    fi
+}
+
 # ------------------------------------------------------------------------------
 # ls
 
