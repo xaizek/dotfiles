@@ -159,7 +159,7 @@ function pull()
     fi
 
     echo -e "\e[1;32m[ Pulling changes from the $remote repository ]\e[m"
-    git pull "$remote" "$(git rev-parse --symbolic-full-name HEAD)"
+    git pull --ff-only "$remote" "$(git rev-parse --symbolic-full-name HEAD)"
     print-command-status
 }
 
