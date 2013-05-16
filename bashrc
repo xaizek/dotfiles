@@ -123,7 +123,15 @@ alias ghi='git hist'
 alias gk='gitk --all&'
 
 # merge previous branch into current forcing creation of a merge commit
-alias merge='git merge --no-ff @{-1}'
+function merge()
+{
+    local topic_branch=$(basename $(git rev-parse --symbolic-full-name @{-1}))
+    local current_branch=$(basename $(git rev-parse --symbolic-full-name HEAD))
+
+    echo -e "\e[1;32m[ Merging \e[4m$topic_branch\e[24m into \e[4m$current_branch\e[24m ]\e[m"
+    git merge --no-ff @{-1}
+    print-command-status
+}
 
 # push current branch to a remote (origin by default)
 function push()
