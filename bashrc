@@ -143,9 +143,10 @@ function push()
     else
         echo 'Usage: push [remote (default: origin)]'
     fi
+    local branch="$(basename $(git rev-parse --symbolic-full-name HEAD))"
 
-    echo -e "\e[1;32m[ Pushing changes to the \e[4m$remote\e[24m repository ]\e[m"
-    git push "$remote" "$(git rev-parse --symbolic-full-name HEAD)"
+    echo -e "\e[1;32m[ Pushing changes to \e[4m$remote\e[24m/\e[4m$branch\e[24m ]\e[m"
+    git push "$remote" "$branch"
     print-command-status
 }
 
