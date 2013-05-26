@@ -235,20 +235,16 @@ complete -o dirnames -A file -X '!*.1' showman
 # bash behaviour configuration
 
 # append to history file instead of overwriting it when shell exits
-shopt -s histappend
+shopt -s histappend 2> /dev/null
 
 # don't overwrite existing files on redirection (require >| instead of >)
 set -o noclobber
 
 # thread directory paths as arguments to an implicit cd command
-if shopt | grep -q autocd; then
-    shopt -s autocd
-fi
+shopt -s autocd 2> /dev/null
 
 # automatically correct minor spelling errors in arguments of cd command
-if shopt | grep -q cdspell; then
-    shopt -s cdspell
-fi
+shopt -s cdspell 2> /dev/null
 
 # the number of commands to remember in the command history
 export HISTSIZE='100000'
