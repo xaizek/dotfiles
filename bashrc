@@ -88,6 +88,9 @@ alias gd='git diff'
 # show differences between refs/tree/files ignoring whitespace changes
 alias gdw='git diff -w'
 
+# show word differences between refs/tree/files
+alias gwd="git diff -w --word-diff \"--word-diff-regex=[]a-z0-9A-Z_['*/\\\"#-]+\""
+
 # show brief of differences between refs/tree/files
 alias gds='git diff --stat'
 
@@ -97,6 +100,9 @@ alias gdc='git diff --cached'
 # show cached (staged) differences between refs/tree/files ignoring whitespace
 # changes
 alias gdcw='git diff --cached -w'
+
+# show word differences between cached (staged) refs/tree/files
+alias gwdc="git diff --cached -w --word-diff \"--word-diff-regex=[]a-z0-9A-Z_['*/\\\"#-]+\""
 
 # show brief of cached (staged) differences between refs/tree/files
 alias gdcs='git diff --cached --stat'
