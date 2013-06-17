@@ -128,7 +128,7 @@ function merge()
     local topic_branch=$(basename $(git rev-parse --symbolic-full-name @{-1}))
     local current_branch=$(basename $(git rev-parse --symbolic-full-name HEAD))
 
-    echo -e "\e[1;32m[ Merging \e[4m$topic_branch\e[24m into \e[4m$current_branch\e[24m ]\e[m"
+    echo -e "\e[1;32m[ Merging \e[33m$topic_branch\e[32m into \e[33m$current_branch\e[32m ]\e[m"
     git merge --no-ff @{-1}
     print-command-status
 }
@@ -145,7 +145,7 @@ function push()
     fi
     local branch="$(basename $(git rev-parse --symbolic-full-name HEAD))"
 
-    echo -e "\e[1;32m[ Pushing changes to \e[4m$remote\e[24m/\e[4m$branch\e[24m ]\e[m"
+    echo -e "\e[1;32m[ Pushing changes to \e[33m$remote\e[32m/\e[33m$branch\e[32m ]\e[m"
     git push "$remote" "$branch"
     print-command-status
 }
