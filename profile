@@ -21,6 +21,9 @@ export PATH="$HOME/bin:$PATH"
 # ==============================================================================
 # less
 
+# ignore case in search pattern unless it contains at least one uppercase letter
+export LESS="$LESS -i"
+
 # make less search for its binary configuration files at ~/.less on all
 # platforms
 export LESSKEY="$HOME/.less"
