@@ -8,7 +8,7 @@ export PROFILE_IS_LOADED=yes
 # it is loaded at the very beginning to allow overwriting of its settings
 
 # source ~/.bashrc file if it exists
-if [ -f ~/.bashrc ]; then
+if [ -f ~/.bashrc -a "$SHELL" = bash ]; then
     . ~/.bashrc
 fi
 
