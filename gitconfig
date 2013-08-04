@@ -1,0 +1,28 @@
+[alias]
+    co = checkout
+    cob = checkout -b
+    ci = commit -v
+    st = status
+    df = diff
+    dfw = diff -w
+    br = branch
+    bra = branch -a
+    brd = branch -d
+    brdd = branch -D
+    hist = log --pretty=format:\"%C(yellow)%h%Creset %C(white)%ad%Creset  %Cgreen%s%Creset%Cred%d%Creset %C(cyan)<by %an>%Creset\" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+    remotes = remote -v
+    droptill = reset --hard
+    droplast = reset --hard HEAD^
+    unstage = reset --mixed HEAD
+    amend = commit -v --amend
+    append = commit -v --amend -C HEAD
+    fix = !vim $(git-ls-files --unmerged | cut -f2 | uniq)
+    pend = log origin/master..HEAD
+
+[color]
+    # enable coloring of git output
+    ui = true
+
+# vim: set filetype=gitconfig :
