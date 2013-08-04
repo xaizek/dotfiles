@@ -42,11 +42,13 @@ fi
 alias e='vim -X --noplugin'
 alias v='e'
 
-# open files in tags of already running instance of gvim; without arguments just
-# runs new gvim
+# open files in tabs of already running instance of gvim creating one if there
+# is no running one; without arguments just runs new gvim
 function g()
 {
-    if [ "$#" -gt "0" ]; then
+    if [ "$#" -eq "1" ]; then
+        gvim "$@"
+    elif [ "$#" -gt "1" ]; then
         gvim --remote-tab-silent "$@"
     else
         gvim
