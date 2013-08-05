@@ -175,7 +175,7 @@ function pull()
         echo 'Usage: pull [remote (default: parent or origin)]'
     fi
 
-    echo -e "\e[1;32m[ Pulling changes from the $remote repository ]\e[m"
+    echo -e "\e[1;32m[ Pulling changes from the \e[33m$remote\e[32m repository ]\e[m"
     git pull --ff-only "$remote" "$(git rev-parse --symbolic-full-name HEAD)"
     print-command-status
 }
