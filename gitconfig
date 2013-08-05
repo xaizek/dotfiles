@@ -25,4 +25,8 @@
     # enable coloring of git output
     ui = true
 
+[merge]
+    # use gvim to resolve merge conflicts
+    tool = gvimdiff
+
 # vim: set filetype=gitconfig :
