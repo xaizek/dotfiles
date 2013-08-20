@@ -47,7 +47,11 @@ alias v='e'
 function g()
 {
     if [ "$#" -eq "1" ]; then
-        gvim "$@"
+        if [ -z "$(gvim --serverlist)" ]; then
+            gvim "$@"
+        else
+            gvim --remote-tab-silent "$@"
+        fi
     elif [ "$#" -gt "1" ]; then
         gvim --remote-tab-silent "$@"
     else
