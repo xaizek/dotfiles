@@ -84,6 +84,9 @@ alias gb='git branch'
 # make a commit
 alias gc='git commit -v'
 
+# make a commit staging all changes in the working tree except untracked files
+alias gca='git commit -a -v'
+
 # show differences between refs/tree/files
 alias gd='git diff'
 
