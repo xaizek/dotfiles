@@ -244,7 +244,7 @@ function showman()
 }
 
 # set autocompletion type for showman function
-complete -o dirnames -A file -X '!*.1' showman
+complete -o dirnames -A file -X '!*.@(1|man)' showman
 
 # ==============================================================================
 # bash behaviour configuration
