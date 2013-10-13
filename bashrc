@@ -316,14 +316,17 @@ if [ "$OS" != Windows_NT ]; then
     # check cursor position and add new line if we're not in the first column
     function prompt-command()
     {
+        exec 100<&0
         exec < /dev/tty
+
         local OLDSTTY=$(stty -g)
         stty raw -echo min 0
         echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
         stty $OLDSTTY
         [[ ${CURPOS##*;} -gt 1 ]] && echo "${color_error}↵${color_error_off}"
 
-        echo -en "\033k\033\\"
+        # restore real stdout and close duplicate
+        exec 0<&100 100<&-
     }
 
     # set prompt-command() function to be executed prior to printing prompt
