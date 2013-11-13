@@ -12,3 +12,6 @@ set bind-tty-special-chars Off
 # recall only commands that start with given beginning on Down Arrow key
 "\e[B": history-search-forward
 "\eOB": history-search-forward
+
+# remove words not WORDS on Ctrl-W
+"\C-w": backward-kill-word
