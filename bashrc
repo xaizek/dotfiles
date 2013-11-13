@@ -160,9 +160,25 @@ function push()
     fi
     local branch="$(basename $(git rev-parse --symbolic-full-name HEAD))"
 
+    if [ -n "$FORCE_PUSH" ]; then
+        extra_args="$extra_args -f"
+    fi
+
     echo -e "\e[1;32m[ Pushing changes to \e[33m$remote\e[32m/\e[33m$branch\e[32m ]\e[m"
-    git push "$remote" "$branch"
+    git push $extra_args "$remote" "$branch"
     print-command-status
+}
+
+# same as push, but forces update
+function pushf()
+{
+    echo "You're going to push remote branch.  Are you sure? [y/N]"
+    read -n1 answer
+    echo
+
+    if [ x"$answer" = x"y" ]; then
+        FORCE_PUSH=1 push
+    fi
 }
 
 # pull current branch from a remote (default: parent if exists, origin
