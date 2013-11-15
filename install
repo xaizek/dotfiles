@@ -48,3 +48,14 @@ else
         echo '$include ~/.files/inputrc' > ~/.inputrc
     fi
 fi
+
+# install .tmux.conf
+if [ -f ~/.tmux.conf ]; then
+    echo 'Skipping ~/.tmux.conf ...'
+else
+    if [ x"$OS" != x'Windows_NT' ]; then
+        ln -s ~/.files/tmux.conf ~/.tmux.conf
+    else
+        echo 'source-file ~/.files/tmux.conf' > ~/.tmux.conf
+    fi
+fi
