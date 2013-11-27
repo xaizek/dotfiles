@@ -47,15 +47,24 @@ alias v='e'
 function g()
 {
     if [ "$#" -eq "1" ]; then
-        if [ -z "$(gvim --serverlist)" ]; then
-            gvim "$@"
+        if [ -z "$(vim --serverlist)" ]; then
+            run_detached_gvim "$@"
         else
-            gvim --remote-tab-silent "$@"
+            run_detached_gvim --remote-tab-silent "$@"
         fi
     elif [ "$#" -gt "1" ]; then
-        gvim --remote-tab-silent "$@"
+        run_detached_gvim --remote-tab-silent "$@"
     else
-        gvim
+        run_detached_gvim
+    fi
+}
+
+function run_detached_gvim()
+{
+    if [ "$OS" != Windows_NT ]; then
+        gvim "$@"
+    else
+        start gvim "$@"
     fi
 }
 
