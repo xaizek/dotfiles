@@ -358,7 +358,7 @@ if [ "$OS" != Windows_NT ]; then
     }
 
     # set prompt-command() function to be executed prior to printing prompt
-    PROMPT_COMMAND='prompt-command'
+    PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''prompt-command'
 
 fi
 
