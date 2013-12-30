@@ -380,7 +380,8 @@ function set-git-branches()
     done
 
     if [ -d "${CUR_DIR}/.git" ]; then
-        export B="$(git rev-parse --symbolic-full-name HEAD 2> /dev/null)"
+        local branch="$(<$CUR_DIR/.git/HEAD)"
+        export B="${branch#*:}"
         export b="$(basename "$B")"
     else
         unset B
