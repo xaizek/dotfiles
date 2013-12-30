@@ -363,6 +363,34 @@ if [ "$OS" != Windows_NT ]; then
 fi
 
 # ==============================================================================
+# store full name of the current branch in $b and $B variables
+
+function set-git-branches()
+{
+    local CUR_DIR="$PWD"
+    while [ -n "$CUR_DIR" ] && [ ! -d ${CUR_DIR}/.git ]; do
+        if [ "$CUR_DIR" = '/' ]; then
+            break
+        fi
+        if [ "${CUR_DIR:1:3}" = ':/' -o "${CUR_DIR:1:3}" = ':' ]; then
+            break
+        fi
+
+        CUR_DIR=${CUR_DIR%/*}
+    done
+
+    if [ -d "${CUR_DIR}/.git" ]; then
+        export B="$(git rev-parse --symbolic-full-name HEAD 2> /dev/null)"
+        export b="$(basename "$B")"
+    else
+        unset B
+        unset b
+    fi
+}
+
+PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''set-git-branches'
+
+# ==============================================================================
 # complete git aliases as if they were expanded
 
 if command -v _git > /dev/null; then
