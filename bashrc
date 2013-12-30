@@ -325,7 +325,10 @@ else
 fi
 
 # use light green to highlight the prompt
-PS1="\\[\033[32m\\]$PS1\\[\033[0m\\]"
+if [ "$OS" = Windows_NT ]; then
+    ps1attr='1;'
+fi
+PS1="\\[\033[${ps1attr}32m\\]$PS1\\[\033[0m\\]"
 
 # ==============================================================================
 # always print command prompt on a new line
