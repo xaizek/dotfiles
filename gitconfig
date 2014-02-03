@@ -9,7 +9,7 @@
     bra = branch -a
     brd = branch -d
     brdd = branch -D
-    hist = log --pretty=format:\"%C(yellow)%h%Creset %C(white)%ad%Creset  %Cgreen%s%Creset%Cred%d%Creset %C(cyan)<by %an>%Creset\" --graph --date=short
+    hist = log --pretty=format:\"%C(yellow)%h%Creset %C(white)%ad%Creset  %Cgreen%s%Creset%Cred%d%Creset %C(cyan)<by %aN>%Creset\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
     remotes = remote -v
