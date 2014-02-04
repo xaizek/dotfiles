@@ -368,7 +368,7 @@ fi
 function set-git-branches()
 {
     local CUR_DIR="$PWD"
-    while [ -n "$CUR_DIR" ] && [ ! -d ${CUR_DIR}/.git ]; do
+    while [ -n "$CUR_DIR" -a ! -d "${CUR_DIR}/.git" ]; do
         if [ "$CUR_DIR" = '/' ]; then
             break
         fi
