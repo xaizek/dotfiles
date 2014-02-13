@@ -33,8 +33,10 @@ else
     # compile .lesskey to get .less
     if [ x"$OS" != x'Windows_NT' ]; then
         lesskey
-    else
+    elif which lesskey > /dev/null 2>&1; then
         lesskey -o ~/.less -- ./lesskey
+    else
+        echo 'Skipping generating ~/.less, lesskey not found ...'
     fi
 fi
 
