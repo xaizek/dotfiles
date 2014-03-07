@@ -86,7 +86,10 @@ alias :q='exit'
 
 # show repository status (staged/modified/untracked files)
 # NOTE: this alias hides GhostScript program
-alias gs='git status'
+function gs()
+{
+    git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z ()\"<>.:-]*\\)/\x1b[4;34m# \\1\x1b[0m/"
+}
 
 # stage changes in a file
 alias ga='git add'
