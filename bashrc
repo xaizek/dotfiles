@@ -132,7 +132,7 @@ alias gdc='git diff --cached'
 alias gdcw='git diff --cached -w'
 
 # show word differences between cached (staged) refs/tree/files
-alias gwdc="git diff --cached -w --word-diff \"--word-diff-regex=[]a-z0-9A-Z_['*/\\\"#-]+\""
+alias gwdc="gwd --cached"
 
 # show brief of cached (staged) differences between refs/tree/files
 alias gdcs='git diff --cached --stat'
