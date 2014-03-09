@@ -272,6 +272,9 @@ complete -F _man h
 # format mount command output in a table
 alias mnt='mount | column -t'
 
+# print content of $PATH environment variable one path per line
+alias path='echo -e ${PATH//:/\\n}'
+
 # make a directory and cd into it
 function mkcd()
 {
