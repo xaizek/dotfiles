@@ -100,6 +100,9 @@ function gs()
 # stage changes in a file
 alias ga='git add'
 
+# stage changes in a files under version control (no untracked files)
+alias gu='git add -u'
+
 # show list of branches
 alias gb='git branch'
 
