@@ -269,6 +269,9 @@ alias mutt='mutt -y'
 alias h='man'
 complete -F _man h
 
+# format mount command output in a table
+alias mnt='mount | column -t'
+
 # make a directory and cd into it
 function mkcd()
 {
