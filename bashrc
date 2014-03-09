@@ -269,6 +269,18 @@ alias mutt='mutt -y'
 alias h='man'
 complete -F _man h
 
+# make a directory and cd into it
+function mkcd()
+{
+    if [ $# -ne 1 ]; then
+        echo 'Expected exactly one argument' 1>&2
+        return 1
+    fi
+
+    mkdir -p "$1"
+    cd "$1"
+}
+
 # ------------------------------------------------------------------------------
 
 # ==============================================================================
