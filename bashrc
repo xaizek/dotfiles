@@ -247,6 +247,12 @@ alias l='ls --group-directories-first'
 # two characters shortcut for ls command with list form of output
 alias ll='l -l'
 
+# ls command that shows hidden files with list form of output
+alias lla='ll -a'
+
+# ls command with list form of output, but don't go into directory
+alias lld='ll -d'
+
 # ------------------------------------------------------------------------------
 # various
 
