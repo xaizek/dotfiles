@@ -284,6 +284,12 @@ function mkcd()
 # ------------------------------------------------------------------------------
 
 # ==============================================================================
+# command customizations
+
+# colorize the grep command output for ease of use
+export GREP_OPTIONS='--color=auto'
+
+# ==============================================================================
 # a command to view man page
 
 # format and show man page in less
