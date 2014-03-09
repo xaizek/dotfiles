@@ -250,8 +250,8 @@ alias ll='ls -l'
 # ------------------------------------------------------------------------------
 # various
 
-# display sizes in output of the free command in megabytes
-alias free='free -m'
+# display sizes in output of the free command in megabytes and show totals
+alias free='free -mt'
 
 # display sizes in output of the df command in human-readable format
 alias df='df --human-readable'
