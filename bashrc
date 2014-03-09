@@ -275,6 +275,9 @@ alias mnt='mount | column -t'
 # print content of $PATH environment variable one path per line
 alias path='echo -e ${PATH//:/\\n}'
 
+# display ps entries that match regular expression
+alias pps='ps -elf | grep -v $$ | grep --color=never -i -e WCHAN -e'
+
 # make a directory and cd into it
 function mkcd()
 {
