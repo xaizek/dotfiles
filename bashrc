@@ -241,8 +241,8 @@ function print-command-status()
 # easier to understand ls command (filetype suffixes/colors/readable size)
 alias ls='ls --classify --color=auto --human-readable'
 
-# single character shortcut for ls command
-alias l='ls'
+# single character shortcut for ls command with directory grouping
+alias l='ls --group-directories-first'
 
 # two characters shortcut for ls command with list form of output
 alias ll='ls -l'
