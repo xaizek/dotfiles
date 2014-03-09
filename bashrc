@@ -88,7 +88,13 @@ alias :q='exit'
 # NOTE: this alias hides GhostScript program
 function gs()
 {
-    git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z ()\"<>.:-]*\\)/\x1b[4;34m# \\1\x1b[0m/"
+    local attr
+    if [ "$OS" = Windows_NT ]; then
+        attr='4;34'
+    else
+        attr='36'
+    fi
+    git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z ()\"<>.:-]*\\)/\x1b["$attr"m# \\1\x1b[0m/"
 }
 
 # stage changes in a file
