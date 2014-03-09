@@ -245,7 +245,7 @@ alias ls='ls --classify --color=auto --human-readable'
 alias l='ls --group-directories-first'
 
 # two characters shortcut for ls command with list form of output
-alias ll='ls -l'
+alias ll='l -l'
 
 # ------------------------------------------------------------------------------
 # various
