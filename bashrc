@@ -97,6 +97,9 @@ function gs()
     git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z1-2 ()\"<>.:'/-]*\\)/\x1b["$attr"m# \\1\x1b[0m/"
 }
 
+# open tig with status window activated
+alias ts='tig status'
+
 # stage changes in a file
 alias ga='git add'
 
