@@ -305,7 +305,9 @@ function mkcd()
 # command customizations
 
 # colorize the grep command output for ease of use
-export GREP_OPTIONS='--color=auto'
+if [ "$OS" != Windows_NT -o "$OSTYPE" = cygwin ]; then
+    export GREP_OPTIONS='--color=auto'
+fi
 
 # ==============================================================================
 # a command to view man page
