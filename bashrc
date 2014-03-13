@@ -94,7 +94,7 @@ function gs()
     else
         attr='36'
     fi
-    git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z1-2 ()\"<>.:'/-]*\\)/\x1b["$attr"m# \\1\x1b[0m/"
+    git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z0-9 ()\"<>.:'/-]*\\)/\x1b["$attr"m# \\1\x1b[0m/"
 }
 
 # open tig with status window activated
