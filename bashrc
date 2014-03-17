@@ -172,6 +172,27 @@ function merge()
     print-command-status
 }
 
+# fetch remote repository and update corresponding refs
+function update()
+{
+    if [ $# -eq 0 ]; then
+        if git remote | grep parent -q; then
+            local default_remote=parent
+        else
+            local default_remote=origin
+        fi
+        local remote="$default_remote"
+    elif [ $# -eq 1 ]; then
+        local remote="$1"
+    else
+        echo 'Usage: update [remote (default: parent or origin)]'
+    fi
+
+    echo -e "\e[1;32m[ Updating refs for \e[33m$remote\e[32m ]\e[m"
+    git remote update "$remote"
+    print-command-status
+}
+
 # push current branch to a remote (origin by default)
 function push()
 {
