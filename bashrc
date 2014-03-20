@@ -89,10 +89,10 @@ alias :q='exit'
 function gs()
 {
     local attr
-    if [ "$OS" = Windows_NT ]; then
-        attr='4;34'
-    else
+    if [ "$OS" != Windows_NT -o "$OSTYPE" = cygwin ]; then
         attr='36'
+    else
+        attr='4;34'
     fi
     git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z0-9 ()\"<>.:'/-]*\\)/\x1b["$attr"m# \\1\x1b[0m/"
 }
