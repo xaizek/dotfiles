@@ -161,13 +161,16 @@ alias ghi='git hist'
 # spawn detached gitk process showing all refs
 alias gk='gitk --all&'
 
+# git message color
+gmc=33
+
 # merge previous branch into current forcing creation of a merge commit
 function merge()
 {
     local topic_branch=$(basename $(git rev-parse --symbolic-full-name @{-1}))
     local current_branch=$(basename $(git rev-parse --symbolic-full-name HEAD))
 
-    echo -e "\e[1;32m[ Merging \e[33m$topic_branch\e[32m into \e[33m$current_branch\e[32m ]\e[m"
+    echo -e "\e[1;${gmc}m[ Merging \e[33m$topic_branch\e[${gmc}m into \e[33m$current_branch\e[${gmc}m ]\e[m"
     git merge --no-ff @{-1}
     print-command-status
 }
@@ -188,7 +191,7 @@ function update()
         echo 'Usage: update [remote (default: parent or origin)]'
     fi
 
-    echo -e "\e[1;32m[ Updating refs for \e[33m$remote\e[32m ]\e[m"
+    echo -e "\e[1;${gmc}m[ Updating refs for \e[33m$remote\e[${gmc}m ]\e[m"
     git remote update "$remote"
     print-command-status
 }
@@ -209,7 +212,7 @@ function push()
         extra_args="$extra_args -f"
     fi
 
-    echo -e "\e[1;32m[ Pushing changes to \e[33m$remote\e[32m/\e[33m$branch\e[32m ]\e[m"
+    echo -e "\e[1;${gmc}m[ Pushing changes to \e[33m$remote\e[${gmc}m/\e[33m$branch\e[${gmc}m ]\e[m"
     git push $extra_args "$remote" "$branch"
     print-command-status
 }
@@ -243,7 +246,7 @@ function pull()
         echo 'Usage: pull [remote (default: parent or origin)]'
     fi
 
-    echo -e "\e[1;32m[ Pulling changes from the \e[33m$remote\e[32m repository ]\e[m"
+    echo -e "\e[1;${gmc}m[ Pulling changes from the \e[33m$remote\e[${gmc}m repository ]\e[m"
     git pull --ff-only "$remote" "$(git rev-parse --symbolic-full-name HEAD)"
     print-command-status
 }
@@ -253,7 +256,7 @@ function pull()
 function print-command-status()
 {
     if [ $? -eq 0 ]; then
-        echo -e "\e[1;32m[ SUCCESS ]\e[m"
+        echo -e "\e[1;${gmc}m[ SUCCESS ]\e[m"
     else
         echo -e "\e[1;31m[ ERROR ]\e[m"
     fi
