@@ -162,7 +162,7 @@ alias ghi='git hist'
 alias gk='gitk --all&'
 
 # git message color
-gmc=33
+gmc=36
 
 # merge previous branch into current forcing creation of a merge commit
 function merge()
