@@ -196,6 +196,29 @@ function update()
     print-command-status
 }
 
+# rebase current branch on top of remove branch
+function rrebase()
+{
+    if [ $# -eq 1 ]; then
+        if git remote | grep parent -q; then
+            local default_remote=parent
+        else
+            local default_remote=origin
+        fi
+        local remote="$default_remote"
+    elif [ $# -eq 2 ]; then
+        local remote="$2"
+    else
+        echo 'Usage: rebase branch [remote (default: parent or origin)]'
+    fi
+
+    local branch="$1"
+
+    echo -e "\e[1;${gmc}m[ Rebasing on \e[33m$remote\e[${gmc}m/\e[33m$branch\e[${gmc}m ]\e[m"
+    git rebase "$remote"/"$branch"
+    print-command-status
+}
+
 # push current branch to a remote (origin by default)
 function push()
 {
