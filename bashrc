@@ -217,7 +217,7 @@ function push()
 # same as push, but forces update
 function pushf()
 {
-    echo "You're going to push remote branch.  Are you sure? [y/N]"
+    echo "You're going to push remote branch with force.  Are you sure? [y/N]"
     read -n1 answer
     echo
 
