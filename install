@@ -61,3 +61,14 @@ else
         echo 'source-file ~/.files/tmux.conf' > ~/.tmux.conf
     fi
 fi
+
+# install .tigrc
+if [ -f ~/.tigrc ]; then
+    echo 'Skipping ~/.tigrc ...'
+else
+    if [ x"$OS" != x'Windows_NT' ]; then
+        ln -s ~/.files/tigrc ~/.tigrc
+    else
+        echo 'source-file ~/.files/tigrc' > ~/.tigrc
+    fi
+fi

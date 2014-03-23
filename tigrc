@@ -1,0 +1,21 @@
+# unbind default binding of G to `git gc`
+bind generic G none
+
+# more vim-like bindings
+bind generic g move-first-line
+bind generic G move-last-line
+bind generic ^f move-page-down
+bind generic ^b move-page-up
+
+# scroll view with J/K
+bind generic J scroll-line-down
+bind generic K scroll-line-up
+
+# customize pseudo-graphic defaults
+set line-graphics = utf-8
+
+# commit in verbose mode (shows all changes)
+bind status C !git commit -v
+
+# initiate interactive rebase until current commit
+bind main x !git rebase -i %(commit)^
