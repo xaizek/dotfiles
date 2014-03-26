@@ -189,6 +189,7 @@ function update()
         local remote="$1"
     else
         echo 'Usage: update [remote (default: parent or origin)]'
+        return 1
     fi
 
     echo -e "\e[1;${gmc}m[ Updating refs for \e[33m$remote\e[${gmc}m ]\e[m"
@@ -210,6 +211,7 @@ function rrebase()
         local remote="$2"
     else
         echo 'Usage: rebase branch [remote (default: parent or origin)]'
+        return 1
     fi
 
     local branch="$1"
@@ -228,6 +230,7 @@ function push()
         local remote="$1"
     else
         echo 'Usage: push [remote (default: origin)]'
+        return 1
     fi
     local branch="$(basename $(git rev-parse --symbolic-full-name HEAD))"
 
@@ -267,6 +270,7 @@ function pull()
         local remote="$1"
     else
         echo 'Usage: pull [remote (default: parent or origin)]'
+        return 1
     fi
 
     echo -e "\e[1;${gmc}m[ Pulling changes from the \e[33m$remote\e[${gmc}m repository ]\e[m"
