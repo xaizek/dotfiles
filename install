@@ -69,6 +69,6 @@ else
     if [ x"$OS" != x'Windows_NT' ]; then
         ln -s ~/.files/tigrc ~/.tigrc
     else
-        echo 'source-file ~/.files/tigrc' > ~/.tigrc
+        echo 'source ~/.files/tigrc' > ~/.tigrc
     fi
 fi
