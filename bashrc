@@ -200,21 +200,30 @@ function update()
 # rebase current branch on top of remove branch
 function rrebase()
 {
-    if [ $# -eq 1 ]; then
+    if [ $# -gt 2 ]; then
+        local remote="$2"
+    fi
+    if [ $# -gt 1 ]; then
+        local branch="$1"
+    fi
+
+    if [ -z "$branch" ]; then
+        local branch="develop"
+    fi
+
+    if [ -z "$remote" ]; then
         if git remote | grep parent -q; then
             local default_remote=parent
         else
             local default_remote=origin
         fi
         local remote="$default_remote"
-    elif [ $# -eq 2 ]; then
-        local remote="$2"
-    else
-        echo 'Usage: rebase branch [remote (default: parent or origin)]'
-        return 1
     fi
 
-    local branch="$1"
+    if [ -z "$branch" -o -z "$remote" ]; then
+        echo 'Usage: rebase [branch (default: develop)] [remote (default: parent or origin)]'
+        return 1
+    fi
 
     echo -e "\e[1;${gmc}m[ Rebasing on \e[33m$remote\e[${gmc}m/\e[33m$branch\e[${gmc}m ]\e[m"
     git rebase "$remote"/"$branch"
