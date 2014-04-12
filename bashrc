@@ -285,7 +285,7 @@ function pull()
         return 1
     fi
 
-    echo -e "\e[1;${gmc}m[ Pulling \e[33m$remote\e[${gmc}m/\e[33m$b\e[${gmc}m -> \e[33m$b\e[${gmc}m with \e[34mff\e[${gmc}m ]\e[m"
+    echo -e "\e[1;${gmc}m[ Pulling \e[33m$remote\e[${gmc}m/\e[33m$(b)\e[${gmc}m -> \e[33m$(b)\e[${gmc}m with \e[34mff\e[${gmc}m ]\e[m"
     git pull --ff-only "$remote" "$(git rev-parse --symbolic-full-name HEAD)"
     print-command-status
 }
@@ -479,9 +479,10 @@ if [ "$OS" != Windows_NT ]; then
 fi
 
 # ==============================================================================
-# store full name of the current branch in $b and $B variables
+# functions to query name of the current branch
 
-function set-git-branches()
+# echoes full specification of the current branch
+function B()
 {
     local CUR_DIR="$PWD"
     while [ -n "$CUR_DIR" -a ! -d "${CUR_DIR}/.git" ]; do
@@ -497,15 +498,15 @@ function set-git-branches()
 
     if [ -d "${CUR_DIR}/.git" ]; then
         local branch="$(<$CUR_DIR/.git/HEAD)"
-        export B="${branch#*:}"
-        export b="$(basename "$B")"
-    else
-        unset B
-        unset b
+        echo -n "${branch#*: }"
     fi
 }
 
-PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''set-git-branches'
+# echoes basename of the current branch
+function b()
+{
+    echo -n "$(basename "$(B)")"
+}
 
 # ==============================================================================
 # complete git aliases as if they were expanded
