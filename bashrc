@@ -125,7 +125,7 @@ alias gd='git diff'
 alias gdw='git diff -w'
 
 # show word differences between refs/tree/files
-alias gwd="git diff -w --word-diff \"--word-diff-regex=[]a-z0-9A-Z_['*/\\\"#-]+\""
+alias gwd="git diff -w --word-diff \"--word-diff-regex=[]a-z0-9A-Z_['*/\\\"{};().#-]+\""
 
 # show brief of differences between refs/tree/files
 alias gds='git diff --stat'
