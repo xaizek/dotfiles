@@ -558,6 +558,12 @@ if command -v _git > /dev/null; then
 fi
 
 # ==============================================================================
+# terminal settings
+
+# disable special meaning of Ctrl-S shortcut in the terminal
+stty -ixon
+
+# ==============================================================================
 # load bash local settings for this machine
 
 # source ~/.bashrc_local file if it exists
