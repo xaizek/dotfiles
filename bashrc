@@ -347,6 +347,9 @@ alias mnt='mount | column -t'
 # print content of $PATH environment variable one path per line
 alias path='echo -e ${PATH//:/\\n}'
 
+# resume wget by default
+alias wget='wget -c'
+
 # display ps entries that match regular expression
 alias pps='ps -elf | grep -v $$ | grep --color=never -i -e WCHAN -e'
 
