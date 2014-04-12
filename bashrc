@@ -285,7 +285,7 @@ function pull()
         return 1
     fi
 
-    echo -e "\e[1;${gmc}m[ Pulling changes from the \e[33m$remote\e[${gmc}m repository ]\e[m"
+    echo -e "\e[1;${gmc}m[ Pulling \e[33m$remote\e[${gmc}m/\e[33m$b\e[${gmc}m -> \e[33m$b\e[${gmc}m with \e[34mff\e[${gmc}m ]\e[m"
     git pull --ff-only "$remote" "$(git rev-parse --symbolic-full-name HEAD)"
     print-command-status
 }
