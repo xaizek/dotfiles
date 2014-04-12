@@ -15,7 +15,7 @@ if [ -z "$PROFILE_IS_LOADED" ]; then
 fi
 
 # ==============================================================================
-# bash completion
+# completion
 
 # use bash-completion or at least git-bash-completion
 if [ "$OS" != Windows_NT ]; then
@@ -31,6 +31,9 @@ fi
 if [ -f "$completion_file" ]; then
     source "$completion_file"
 fi
+
+# remove files with the following suffixes from completion matches
+export FIGNORE='.d:.o'
 
 # ==============================================================================
 # aliases and functions
