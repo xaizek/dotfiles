@@ -563,6 +563,11 @@ fi
 # disable special meaning of Ctrl-S shortcut in the terminal
 stty -ixon
 
+# see `man gpg-agent` for details
+if [ "$OS" != Windows_NT -o "$OSTYPE" = cygwin ]; then
+    export GPG_TTY="$(tty)"
+fi
+
 # ==============================================================================
 # load bash local settings for this machine
 
