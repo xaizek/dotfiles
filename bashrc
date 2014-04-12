@@ -353,6 +353,17 @@ alias wget='wget -c'
 # display ps entries that match regular expression
 alias pps='ps -elf | grep -v $$ | grep --color=never -i -e WCHAN -e'
 
+# connect to remote host via ssh and run/connect to "remote" tmux session there
+function stmux()
+{
+    if [ $# -lt 1 ]; then
+        echo 'Expected at least one argument' 1>&2
+        return 1
+    fi
+
+    ssh "$@" 'tmux new-session -A -s remote'
+}
+
 # make a directory and cd into it
 function mkcd()
 {
