@@ -29,8 +29,10 @@ else
     if [ x"$OS" != x'Windows_NT' ]; then
         ln -s ~/.files/lesskey ~/.lesskey
     fi
+fi
 
-    # compile .lesskey to get .less
+# compile .lesskey to get up-to-date version of .less
+if [ ~/.lesskey -nt ~/.less ]; then
     if [ x"$OS" != x'Windows_NT' ]; then
         lesskey
     elif which lesskey > /dev/null 2>&1; then
@@ -38,6 +40,8 @@ else
     else
         echo 'Skipping generating ~/.less, lesskey not found ...'
     fi
+else
+    echo "Skipping generating ~/.less, it's already up-to-date ..."
 fi
 
 # install .inputrc
