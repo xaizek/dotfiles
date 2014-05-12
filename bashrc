@@ -458,6 +458,10 @@ if [ "$OS" = Windows_NT ]; then
 fi
 PS1="\\[\033[${ps1attr}32m\\]$PS1\\[\033[0m\\]"
 
+if [ -n "$SSH_CONNECTION" -a -z "$TMUX" ]; then
+    PS1="[${HOSTNAME%%.*}]$PS1"
+fi
+
 # ==============================================================================
 # always print command prompt on a new line
 
