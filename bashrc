@@ -425,6 +425,9 @@ export HISTIGNORE='&:l:ll:ls:[bf]g:su:exit'
 # before that line is saved
 export HISTCONTROL='erasedups'
 
+# store timestamp along with commands in history
+export HISTTIMEFORMAT='%F %T  '
+
 # ==============================================================================
 # command-line prompt customization
 
