@@ -88,7 +88,7 @@ alias :q='exit'
 # git
 
 # show repository status (staged/modified/untracked files)
-# NOTE: this alias hides GhostScript program
+# NOTE: this function hides GhostScript program
 function gs()
 {
     local attr
@@ -97,7 +97,7 @@ function gs()
     else
         attr='4;34'
     fi
-    git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z0-9 ()\"<>.:'/-]*\\)/\x1b["$attr"m# \\1\x1b[0m/"
+    git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z0-9 ()\"<>,.:'/-]*\\)/\x1b["$attr"m#\\1\x1b[0m/"
 }
 
 # open tig with status window activated
