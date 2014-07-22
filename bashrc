@@ -459,7 +459,11 @@ fi
 if [ "$OS" = Windows_NT ]; then
     ps1attr='1;'
 fi
-PS1="\\[\033[${ps1attr}32m\\]$PS1\\[\033[0m\\]"
+if [ "$(tput colors 2> /dev/null)" -eq 256 ]; then
+    PS1="\\[\033[1;38;5;228m\\]$PS1\\[\033[0m\\]"
+else
+    PS1="\\[\033[${ps1attr}32m\\]$PS1\\[\033[0m\\]"
+fi
 
 if [ -n "$SSH_CONNECTION" -a -z "$TMUX" ]; then
     PS1="[${HOSTNAME%%.*}]$PS1"
