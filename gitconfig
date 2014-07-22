@@ -1,3 +1,7 @@
+[core]
+    # make tabulation character visible in diffs
+    pager = sed 's/\t/.       /g' | less -R
+
 [alias]
     co = checkout
     cob = checkout -b
