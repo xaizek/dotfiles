@@ -4,8 +4,8 @@ bind generic G none
 # more vim-like bindings
 bind generic g move-first-line
 bind generic G move-last-line
-bind generic ^f move-page-down
-bind generic ^b move-page-up
+bind generic <Ctrl-f> move-page-down
+bind generic <Ctrl-b> move-page-up
 
 # scroll view with J/K
 bind generic J scroll-line-down
