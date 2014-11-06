@@ -398,7 +398,10 @@ alias h='man'
 complete -F _man h
 
 # format mount command output in a table
-alias mnt='mount | column -t'
+function mount()
+{
+    /bin/mount "$@" | column -t
+}
 
 # print content of $PATH environment variable one path per line
 alias path='echo -e ${PATH//:/\\n}'
