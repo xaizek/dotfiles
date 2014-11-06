@@ -181,11 +181,17 @@ gmc=36
 function merge()
 {
     local topic_branch=$(basename $(git rev-parse --symbolic-full-name @{-1}))
-    local current_branch=$(basename $(git rev-parse --symbolic-full-name HEAD))
+    local current_branch=$(branch)
 
     echo -e "\e[1;${gmc}m[ Merging \e[33m$topic_branch\e[${gmc}m into \e[33m$current_branch\e[${gmc}m ]\e[m"
     git merge --no-ff @{-1}
     print-command-status
+}
+
+# outputs name of current git branch
+function branch()
+{
+    basename $(git rev-parse --symbolic-full-name HEAD)
 }
 
 # fetch remote repository and update corresponding refs
