@@ -168,6 +168,30 @@ alias gdcs='git diff --cached --stat'
 # checkout a branch/commit
 alias go='git checkout'
 
+# interactive version of switching to git branch
+function igo()
+{
+    git branch |
+        sed -e '/^\* /d' -e 's/^..//' |
+        ( . sentaku -n
+          _sf_set_header() { _s_header='Pick destination branch:'; }
+          _sf_execute() { git checkout "${_s_inputs[$_s_current_n]}"; } &&
+              _sf_main -H
+        )
+}
+
+# interactive version opening one of files from git status omitting untracked
+# ones
+function igg()
+{
+    git status -s -uno |
+        cut -d ' ' -f 3- |
+        ( . sentaku -n
+          _sf_set_header() { _s_header='Pick file to open:'; }
+          _sf_execute() { g "${_s_inputs[$_s_current_n]}"; } && _sf_main -H
+        )
+}
+
 # create and checkout a branch
 alias gob='git checkout -b'
 
