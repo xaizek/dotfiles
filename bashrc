@@ -41,8 +41,8 @@ export FIGNORE='.d:.o'
 # ------------------------------------------------------------------------------
 # vim
 
-# open console vim with disabled support of X-server and not loading plugins
-alias e='vim -X --noplugin'
+# open console vim
+alias e='vim'
 alias v='e'
 
 # open files in tabs of already running instance of gvim creating one if there
