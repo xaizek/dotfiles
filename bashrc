@@ -123,7 +123,19 @@ alias gu='git add -u'
 alias gb='git branch'
 
 # make a commit
-alias gc='git commit -v'
+function gc()
+{
+    if [ "$(git branch | wc -l)" -gt 1 -a "$(branch)" = master ]; then
+        echo -e "\e[1;33mContinue and commit to \e[1;${gmc}mmaster\e[m\e[1;33m?\e[m [y/N]"
+        read -n1 answer
+        echo
+
+        if [ "$answer" != y ]; then
+            return
+        fi
+    fi
+    git commit -v "$@"
+}
 
 # make a commit staging all changes in the working tree except untracked files
 alias gca='gc -a'
