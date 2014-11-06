@@ -100,7 +100,7 @@ function gs()
     else
         attr='4;34'
     fi
-    git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z0-9 ()\"<>,.:'/-]*\\)/\x1b["$attr"m#\\1\x1b[0m/"
+    git -c color.status=always status "$@" | sed "s/^#\\(#\\?[A-Za-z0-9 ()\"<>,.:'/-]*\\)/\x1b["$attr"m#\\1\x1b[0m/"
 }
 
 # same as gs() function, but does not show untracked files
