@@ -45,6 +45,9 @@ export FIGNORE='.d:.o'
 alias e='vim'
 alias v='e'
 
+# open vim and make it read error file from stdin
+alias vimq='vim +cgetbuffer +bd! +cfirst -'
+
 # open files in tabs of already running instance of gvim creating one if there
 # is no running one; without arguments just runs new gvim
 function g()
