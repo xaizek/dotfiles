@@ -103,6 +103,12 @@ function gs()
     git -c color.status=always status "$@" | sed "s/^#\\([A-Za-z0-9 ()\"<>,.:'/-]*\\)/\x1b["$attr"m#\\1\x1b[0m/"
 }
 
+# same as gs() function, but does not show untracked files
+function gsu()
+{
+    gs --untracked-files=no "$@"
+}
+
 # open tig with status window activated
 alias ts='tig status'
 
