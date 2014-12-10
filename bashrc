@@ -410,7 +410,25 @@ alias path='echo -e ${PATH//:/\\n}'
 alias wget='wget -c'
 
 # display ps entries that match regular expression
-alias pps='ps -elf | grep -v $$ | grep --color=never -i -e WCHAN -e'
+function pps()
+{
+    if [ $# -eq 0 ]; then
+        echo 'Usage: pps args...'
+        return 1
+    fi
+
+    local title=
+    local lines=
+    while read line; do
+        if [ -z "$title" ]; then
+            title="$line"
+        else
+            lines="$lines$line"$'\n'
+        fi
+    done < <(ps -elf)
+    echo "$title"
+    echo "$lines" | grep -v $$ | grep -i -e WCHAN -e "$@"
+}
 
 # connect to remote host via ssh and run/connect to "remote" tmux session there
 function stmux()
