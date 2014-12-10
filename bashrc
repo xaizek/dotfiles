@@ -141,7 +141,7 @@ function gc()
 alias gca='gc -a'
 
 # show differences between refs/tree/files
-alias gd='git diff'
+alias gd='git diff --stat -u'
 
 # show differences between refs/tree/files ignoring whitespace changes
 alias gdw='git diff -w'
@@ -199,7 +199,7 @@ alias gob='git checkout -b'
 alias got='git checkout --track'
 
 # show information about git object
-alias gh='git show'
+alias gh='git show -u --stat'
 
 # show information about git object with some statistic
 alias ghs='git show --stat'
