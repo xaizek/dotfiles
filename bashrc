@@ -466,10 +466,10 @@ fi
 # ==============================================================================
 # a command to view man page
 
-# format and show man page in less
+# format and show man page specified by the path rather than keyword
 function showman()
 {
-    groff -Tascii -man "$1" | less
+    man "./$1"
 }
 
 # set autocompletion type for showman function
