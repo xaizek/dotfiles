@@ -68,9 +68,9 @@ function g()
 function run_detached_gvim()
 {
     if [ "$OS" != Windows_NT ]; then
-        gvim "$@"
+        gvim $VIMARGS "$@"
     else
-        start gvim "$@"
+        start gvim $VIMARGS "$@"
     fi
 }
 
