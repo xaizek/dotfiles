@@ -318,7 +318,7 @@ function pushf()
     echo
 
     if [ x"$answer" = x"y" ]; then
-        FORCE_PUSH=1 push
+        FORCE_PUSH=1 push "$@"
     fi
 }
 
