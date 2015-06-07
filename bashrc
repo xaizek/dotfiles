@@ -153,11 +153,11 @@ alias gwd="git diff -w --word-diff \"--word-diff-regex=[]a-z0-9A-Z_['*/\\\"{};()
 alias gds='git diff --stat'
 
 # show cached (staged) differences between refs/tree/files
-alias gdc='git diff --cached'
+alias gdc='gd --cached'
 
 # show cached (staged) differences between refs/tree/files ignoring whitespace
 # changes
-alias gdcw='git diff --cached -w'
+alias gdcw='gdc -w'
 
 # show word differences between cached (staged) refs/tree/files
 alias gwdc="gwd --cached"
