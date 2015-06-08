@@ -291,22 +291,28 @@ function rrebase()
 # push current branch to a remote (origin by default)
 function push()
 {
+    local current="$(basename $(git rev-parse --symbolic-full-name HEAD))"
+
     if [ "$#" -eq "0" ]; then
         local remote='origin'
-    elif [ "$#" -gt "0" ]; then
+        local branch="$current"
+    elif [ "$#" -eq "1" ]; then
         local remote="$1"
+        local branch="$current"
+    elif [ "$#" -eq "2" ]; then
+        local remote="$1"
+        local branch="$2"
     else
-        echo 'Usage: push [remote (default: origin)]'
+        echo 'Usage: push [remote (default: origin)] [branch (default: <current>)]'
         return 1
     fi
-    local branch="$(basename $(git rev-parse --symbolic-full-name HEAD))"
 
     if [ -n "$FORCE_PUSH" ]; then
         extra_args="$extra_args -f"
     fi
 
     echo -e "\e[1;${gmc}m[ Pushing changes to \e[33m$remote\e[${gmc}m/\e[33m$branch\e[${gmc}m ]\e[m"
-    git push $extra_args "$remote" "$branch"
+    git push $extra_args "$remote" "$current:$branch"
     print-command-status
 }
 
