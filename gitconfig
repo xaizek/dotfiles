@@ -16,7 +16,7 @@
     hist = log --pretty=format:\"%C(yellow)%h%Creset %C(white)%ad%Creset  %Cgreen%s%Creset%Cred%d%Creset %C(cyan)<by %aN>%Creset\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
-    remotes = remote -v
+    remotes = !git remote -v | awk 'NR%2 { print $1, $2 }' | column -t
     droptill = reset --hard
     droplast = reset --hard HEAD^
     unstage = reset --mixed HEAD
