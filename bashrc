@@ -311,7 +311,7 @@ function push()
         extra_args="$extra_args -f"
     fi
 
-    echo -e "\e[1;${gmc}m[ Pushing changes to \e[33m$remote\e[${gmc}m/\e[33m$branch\e[${gmc}m ]\e[m"
+    echo -e "\e[1;${gmc}m[ Pushing \e[33m$current\e[${gmc}m to \e[33m$remote\e[${gmc}m/\e[33m$branch\e[${gmc}m ]\e[m"
     git push $extra_args "$remote" "$current:$branch"
     print-command-status
 }
