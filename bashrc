@@ -513,9 +513,9 @@ export HISTTIMEFORMAT='%F %T  '
 # ==============================================================================
 # command-line prompt customization
 
-# [{vifm-parent-sign}{parent-bash-shell-sign}*][{pwd}]{user-type}{space}
+# [{vifm-parent-sign}{parent-bash-shell-sign}*][{pwd}][error]{user-type}{space}
 if [ -n "$PS1" ]; then
-    export PS1="[\\w]\\$ "
+    export PS1='[\w]\[`_retcode`\]\$ '
     if [ "x$INSIDE_VIFM" != "x" -o "x$VIFM_SHELL" = x$(( SHLVL - 1 )) ]; then
         if [ "x$VIFM_SHELL" = x$(( SHLVL - 1 )) ]; then
             buf='V'
@@ -550,6 +550,18 @@ fi
 if [ -n "$SSH_CONNECTION" -a -z "$TMUX" ]; then
     PS1="[${HOSTNAME%%.*}]$PS1"
 fi
+
+# displays additional information about result of the last command
+function _retcode()
+{
+    local code=$?
+    if [ $code -eq 0 ]; then
+        true
+    else
+        # echo -e "\\e[31m <$code> "
+        echo -e '\e[31m'
+    fi
+}
 
 # ==============================================================================
 # always print command prompt on a new line
