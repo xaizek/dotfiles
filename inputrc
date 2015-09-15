@@ -1,6 +1,9 @@
 # do completion on one <tab> press, not two
 set show-all-if-ambiguous On
 
+# display input mode indicator in front of command line
+set show-mode-in-prompt On
+
 # disable default binding for special characters, thus enabling custom bindings
 # to them (e.g. Ctrl-W)
 set bind-tty-special-chars Off
