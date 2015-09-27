@@ -18,3 +18,56 @@ set bind-tty-special-chars Off
 
 # remove words not WORDS on Ctrl-W
 "\C-w": backward-kill-word
+
+# Mixed vi-emacs configuration: uses emacs shortcuts in vi insert and normal
+# modes.
+
+set keymap vi-insert
+"\C-l": clear-screen
+"\C-a": beginning-of-line
+"\eOH": beginning-of-line
+"\e[H": beginning-of-line
+"\C-e": end-of-line
+"\eOF": end-of-line
+"\e[F": end-of-line
+"\C-f": forward-char
+"\eOC": forward-char
+"\e[C": forward-char
+"\C-b": backward-char
+"\eOD": backward-char
+"\e[D": backward-char
+"\ef": forward-word
+"\eb": backward-word
+"\C-n": next-history
+"\C-p": previous-history
+"\C-x\C-r": re-read-init-file
+"\e.": insert-last-argument
+"\e_": insert-last-argument
+"\C-k": kill-line
+"\C-w": backward-kill-word
+"\C-x\C-e": edit-and-execute-command
+
+set keymap vi-command
+"\C-l": clear-screen
+"\C-a": beginning-of-line
+"\eOH": beginning-of-line
+"\e[H": beginning-of-line
+"\C-e": end-of-line
+"\eOF": end-of-line
+"\e[F": end-of-line
+"\C-f": forward-char
+"\eOC": forward-char
+"\e[C": forward-char
+"\C-b": backward-char
+"\eOD": backward-char
+"\e[D": backward-char
+"\ef": forward-word
+"\eb": backward-word
+"\C-n": next-history
+"\C-p": previous-history
+"\C-x\C-r": re-read-init-file
+
+# gdb looses ability to enable TUI in vi mode, so use in bash only
+$if Bash
+    set editing-mode vi
+$endif
