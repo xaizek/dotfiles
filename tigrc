@@ -19,3 +19,8 @@ bind status C !git commit -v
 
 # initiate interactive rebase until current commit
 bind main x !git rebase -i %(commit)^
+
+# more readable and closer to git defaults look
+color date black default bold
+color diff-stat default default bold
+color diff-index default default bold
