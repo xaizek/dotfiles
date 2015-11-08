@@ -66,6 +66,17 @@ else
     fi
 fi
 
+# install .screenrc
+if [ -f ~/.screenrc ]; then
+    echo 'Skipping ~/.screenrc ...'
+else
+    if [ x"$OS" != x'Windows_NT' ]; then
+        ln -s ~/.files/screenrc ~/.screenrc
+    else
+        echo 'source ~/.files/screenrc' > ~/.screenrc
+    fi
+fi
+
 # install .tigrc
 if [ -f ~/.tigrc ]; then
     echo 'Skipping ~/.tigrc ...'
