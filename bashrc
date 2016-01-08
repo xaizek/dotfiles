@@ -551,6 +551,19 @@ if [ -n "$SSH_CONNECTION" -a -z "$TMUX" ]; then
     PS1="[${HOSTNAME%%.*}]$PS1"
 fi
 
+# set screen title
+if [ -z "$TMUX" ]; then
+    # when in shell, to current path
+    case $TERM in
+        screen*)
+            PS1='\[\033k\w\033\\\]'$PS1
+            ;;
+        *) ;;
+    esac
+    # otherwise to command name
+    PROMPT_COMMAND="echo -ne '\033k\033\0134';$PROMPT_COMMAND"
+fi
+
 # displays additional information about result of the last command
 function _retcode()
 {
