@@ -579,7 +579,8 @@ function _retcode()
 # ==============================================================================
 # always print command prompt on a new line
 
-if [ "$OS" != Windows_NT ]; then
+# when not on Windows and stdout is a tty
+if [ "$OS" != Windows_NT -a -t 1 ]; then
 
     # query terminal escape codes for default and red colors and for color reset
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
