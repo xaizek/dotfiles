@@ -622,7 +622,8 @@ function B()
 # echoes basename of the current branch
 function b()
 {
-    echo -n "$(basename "$(B)")"
+    local branch="$(B)"
+    echo -n "${branch#*/*/}"
 }
 
 # ==============================================================================
