@@ -43,6 +43,7 @@ set keymap vi-insert
 "\C-x\C-r": re-read-init-file
 "\e.": insert-last-argument
 "\e_": insert-last-argument
+"\ed": kill-word
 "\C-k": kill-line
 "\C-w": backward-kill-word
 "\C-x\C-e": edit-and-execute-command
