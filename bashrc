@@ -404,6 +404,9 @@ alias mutt='mutt -y'
 alias h='man'
 complete -F _man h
 
+# colorize the grep command output for ease of use
+alias grep='grep --color=auto'
+
 # format mount command output in a table
 function mount()
 {
@@ -459,16 +462,6 @@ function mkcd()
     mkdir -p "$1"
     cd "$1"
 }
-
-# ------------------------------------------------------------------------------
-
-# ==============================================================================
-# command customizations
-
-# colorize the grep command output for ease of use
-if [ "$OS" != Windows_NT -o "$OSTYPE" = cygwin ]; then
-    export GREP_OPTIONS='--color=auto'
-fi
 
 # ==============================================================================
 # a command to view man page
