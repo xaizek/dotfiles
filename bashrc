@@ -53,7 +53,7 @@ alias vimq='vim +cgetbuffer +bd! +cfirst -'
 function g()
 {
     if [ "$#" -eq "1" ]; then
-        if [ -z "$(vim --serverlist)" ]; then
+        if [ -z "$(gvim --serverlist)" ]; then
             run_detached_gvim "$@"
         else
             run_detached_gvim --remote-tab-silent "$@"
