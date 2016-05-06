@@ -469,7 +469,7 @@ function mkcd()
 # format and show man page specified by the path rather than keyword
 function showman()
 {
-    man "./$1"
+    man "$(realpath $1)"
 }
 
 # set autocompletion type for showman function
