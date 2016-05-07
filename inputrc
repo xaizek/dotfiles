@@ -50,6 +50,12 @@ set keymap vi-insert
 "\C-k": kill-line
 "\C-w": backward-kill-word
 "\C-x\C-e": edit-and-execute-command
+# recall only commands that start with given beginning on Up Arrow key
+"\e[A": history-search-backward
+"\eOA": history-search-backward
+# recall only commands that start with given beginning on Down Arrow key
+"\e[B": history-search-forward
+"\eOB": history-search-forward
 
 set keymap vi-command
 "\C-l": clear-screen
