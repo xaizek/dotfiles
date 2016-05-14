@@ -481,7 +481,7 @@ complete -o dirnames -A file -X '!*.@(1|man)' showman
 # append to history file instead of overwriting it when shell exits
 shopt -s histappend 2> /dev/null
 
-# thread directory paths as arguments to an implicit cd command
+# treat directory paths as arguments to an implicit cd command
 shopt -s autocd 2> /dev/null
 
 # automatically correct minor spelling errors in arguments of cd command
