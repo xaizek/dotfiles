@@ -21,6 +21,11 @@ bind status C !git commit -v
 bind main x !git rebase -i %(commit)^
 
 # more readable and closer to git defaults look
+color cursor black yellow normal
 color date black default bold
 color diff-stat default default bold
 color diff-index default default bold
+color stat-staged cyan default bold
+color stat-unstaged cyan default bold
+color stat-untracked cyan default bold
+color status.section green default
