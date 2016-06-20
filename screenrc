@@ -20,6 +20,9 @@ defutf8 on
 # use 256-color palette
 term screen-256color
 
+# no visual bell
+vbell off
+
 # disable flow control as it conflicts with Ctrl-S prefix
 defflow off
 
