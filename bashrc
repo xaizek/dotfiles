@@ -223,7 +223,7 @@ function merge()
     local current_branch=$(branch)
 
     echo -e "\e[1;${gmc}m[ Merging \e[33m$topic_branch\e[${gmc}m into \e[33m$current_branch\e[${gmc}m ]\e[m"
-    git merge --log --no-ff "$@" @{-1}
+    git merge --log=999999 --no-ff "$@" @{-1}
     print-command-status
 }
 
