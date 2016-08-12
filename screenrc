@@ -177,7 +177,7 @@ bindkey -m > eval "stuff ' '" writebuf "exec sh -c 'xsel < /tmp/screen-exchange'
 # https://gist.github.com/joaopizani/2718397
 
 # put screen into resize mode
-bind R command -c rs
+bind R command -c rsz
 
 # use hjkl keys to resize regions
 bind -c rsz h eval "resize -h -5" "command -c rsz"
