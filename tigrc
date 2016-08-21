@@ -9,14 +9,17 @@ bind generic <Ctrl-b> move-page-up
 bind generic J scroll-line-down
 bind generic K scroll-line-up
 
-# customize pseudo-graphic defaults
-set line-graphics = utf-8
-
 # commit in verbose mode (shows all changes)
 bind status C !git commit -v
 
 # initiate interactive rebase until current commit
 bind main x !git rebase -i %(commit)^
+
+# customize pseudo-graphic defaults
+set line-graphics = utf-8
+
+# add commit hash column and shorten author field
+set main-view = line-number:no,interval=5 id:yes date:default author:abbreviated,width=0 commit-title:yes,graph,refs,overflow=no
 
 # more readable and closer to git defaults look
 color cursor black yellow normal
