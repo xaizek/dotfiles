@@ -1,9 +1,7 @@
-# unbind default binding of G to `git gc`
-bind generic G none
-
 # more vim-like bindings
 bind generic g move-first-line
 bind generic G move-last-line
+bind main G move-last-line
 bind generic <Ctrl-f> move-page-down
 bind generic <Ctrl-b> move-page-up
 
