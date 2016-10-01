@@ -129,6 +129,10 @@ bind - eval split 'focus down' screen
 # split vertically creating new shell prompt
 bind | eval 'split -v' 'focus right' screen
 
+# most of the time it's handy to kill a region and window simultaneously, so
+# make it easy to do with "x"
+bind x eval kill remove
+
 # ------------------------------------------------------------------------------
 # layouts
 
