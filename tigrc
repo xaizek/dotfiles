@@ -21,6 +21,9 @@ set line-graphics = utf-8
 # add commit hash column and shorten author field
 set main-view = line-number:no,interval=5 id:yes date:default author:abbreviated,width=0 commit-title:yes,graph,refs,overflow=no
 
+# don't expand contents of untracked directories
+set status-show-untracked-dirs = false
+
 # more readable and closer to git defaults look
 color cursor black yellow normal
 color date black default bold
