@@ -22,10 +22,15 @@ set bind-tty-special-chars Off
 # remove words not WORDS on Ctrl-W
 "\C-w": backward-kill-word
 
+tab: menu-complete
+"\e[Z": menu-complete-backward
+
 # Mixed vi-emacs configuration: uses emacs shortcuts in vi insert and normal
 # modes.
 
 set keymap vi-insert
+tab: menu-complete
+"\e[Z": menu-complete-backward
 "\C-l": clear-screen
 "\C-a": beginning-of-line
 "\eOH": beginning-of-line
