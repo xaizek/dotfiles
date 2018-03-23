@@ -13,7 +13,7 @@ bind generic K scroll-line-up
 bind status C !git commit -v
 
 # initiate interactive rebase until current commit
-bind main x !git rebase -i %(commit)^
+bind main x <git rebase -i %(commit)^
 
 # customize pseudo-graphic defaults
 set line-graphics = utf-8
