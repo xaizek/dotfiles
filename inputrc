@@ -11,6 +11,9 @@ set bell-style none
 # to them (e.g. Ctrl-W)
 set bind-tty-special-chars Off
 
+# disable saving edits of history
+set revert-all-at-newline On
+
 # colorize common prefix among completion matches
 set colored-completion-prefix On
 
