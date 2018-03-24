@@ -67,10 +67,15 @@ function g()
 
 function run_detached_gvim()
 {
-    if [ "$OS" != Windows_NT ]; then
-        gvim $VIMARGS "$@"
-    else
+    if [ "$OS" = Windows_NT ]; then
         start gvim $VIMARGS "$@"
+        return
+    fi
+
+    if type run-gvim > /dev/null 2>&1; then
+        run-gvim "$@"
+    else
+        gvim $VIMARGS "$@"
     fi
 }
 
