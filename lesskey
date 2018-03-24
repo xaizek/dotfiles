@@ -1,4 +1,15 @@
 # ==============================================================================
+# additional keys for command mode
+
+#command
+
+# reset filter to an empty value
+c filter ^M
+
+# restore last value of the filter
+C filter ^P^M
+
+# ==============================================================================
 # shell (or Emacs) like shortcuts for the line-edit mode
 
 #line-edit
