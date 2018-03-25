@@ -209,11 +209,8 @@ alias gh='git show -u --stat --ext-diff'
 # show information about git object with some statistic
 alias ghs='git show --stat'
 
-# show first 100 of latest repository revisions using "hist" git alias
-alias ghi='git hist -100'
-
 # show full repository history using "hist" git alias
-alias ghii='git hist'
+alias ghi='git hist'
 
 # spawn detached gitk process showing all refs
 alias gk='gitk --all&'
