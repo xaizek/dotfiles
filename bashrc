@@ -204,7 +204,7 @@ alias gob='git checkout -b'
 alias got='git checkout --track'
 
 # show information about git object
-alias gh='git show -u --stat'
+alias gh='git show -u --stat --ext-diff'
 
 # show information about git object with some statistic
 alias ghs='git show --stat'
