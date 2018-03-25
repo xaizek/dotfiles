@@ -548,14 +548,9 @@ if [ -n "$SSH_CONNECTION" -a -z "$TMUX" ]; then
 fi
 
 # set screen title
-if [ -z "$TMUX" ]; then
+if [ -n "$STY" ]; then
     # when in shell, to current path
-    case $TERM in
-        screen*)
-            PS1='\[\033k\w\033\\\]'$PS1
-            ;;
-        *) ;;
-    esac
+    PS1='\[\033k\w\033\\\]'$PS1
     # otherwise to command name
     PROMPT_COMMAND="echo -ne '\033k\033\0134';$PROMPT_COMMAND"
 fi
