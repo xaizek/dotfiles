@@ -431,15 +431,16 @@ function pps()
 
     local title=
     local lines=
+    local input=$(ps -elf)
     while read line; do
         if [ -z "$title" ]; then
             title="$line"
         else
             lines="$lines$line"$'\n'
         fi
-    done < <(ps -elf)
-    echo "$title"
-    echo "$lines" | grep -v $$ | grep -i -e WCHAN -e "$@"
+    done <<< "$input"
+    echo $'\e[33m'"$title"$'\e[m'
+    echo "$lines" | grep -i "$@"
 }
 
 # connect to remote host via ssh and run/connect to "remote" tmux session there
