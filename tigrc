@@ -24,6 +24,9 @@ set main-view = line-number:no,interval=5 id:yes date:default author:abbreviated
 # don't expand contents of untracked directories
 set status-show-untracked-dirs = false
 
+# tabs take 4 character positions
+set tab-size = 4
+
 # more readable and closer to git defaults look
 color cursor black yellow normal
 color date black default bold
