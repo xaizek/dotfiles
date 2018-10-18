@@ -27,6 +27,9 @@ set status-show-untracked-dirs = false
 # tabs take 4 character positions
 set tab-size = 4
 
+# ignore case unless search string doesn't contain uppercase letters
+set ignore-case = smart-case
+
 # more readable and closer to git defaults look
 color cursor black yellow normal
 color date black default bold
