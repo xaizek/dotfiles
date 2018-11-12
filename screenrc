@@ -117,6 +117,9 @@ bind j focus down
 bind k focus up
 bind l focus right
 
+# switch to previous window
+bind ' ' other
+
 # reload configuration file (note that this creates extra layout)
 bind r source ~/.screenrc
 
