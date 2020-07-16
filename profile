@@ -22,7 +22,7 @@ export PATH="$HOME/bin:$PATH"
 # less
 
 # ignore case in search pattern unless it contains at least one uppercase letter
-export LESS="$LESS -i"
+export LESS="$LESS --ignore-case --RAW-CONTROL-CHARS"
 
 # make less search for its binary configuration files at ~/.less on all
 # platforms
