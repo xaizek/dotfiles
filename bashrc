@@ -468,6 +468,11 @@ function mkcd()
         return 1
     fi
 
+    if [ -d "$1" ]; then
+        echo 'Directory already exists at' "$1"
+        return 1
+    fi
+
     mkdir -p "$1"
     cd "$1"
 }
