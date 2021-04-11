@@ -391,6 +391,9 @@ alias lld='ll -d'
 # display sizes in output of the free command in megabytes and show totals
 alias free='free -mt'
 
+# enable colors in the output of tree command
+alias tree='tree -C'
+
 # display sizes in output of the df command in human-readable format
 alias df='df --human-readable'
 
