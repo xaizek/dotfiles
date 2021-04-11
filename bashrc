@@ -321,7 +321,8 @@ function push()
 # same as push, but forces update
 function pushf()
 {
-    echo "You're going to push remote branch with force.  Are you sure? [y/N]"
+    local current="$(basename $(git rev-parse --symbolic-full-name HEAD))"
+    echo -e "\e[31;1mYou're going to push branch \e[33m$current\e[31m with force.\e[m  \e[33mAre you sure? \e[1m[y/N]\e[m"
     read -n1 answer
     echo
 
