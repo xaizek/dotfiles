@@ -507,9 +507,9 @@ set -o noclobber
 # the number of commands to remember in the command history
 export HISTSIZE='100000'
 
-# don't save duplicates, l, ll, ls, bf, bg, su and exit commands to command
+# don't save duplicates, b, l, ll, ls, bf, bg, su and exit commands to command
 # history
-export HISTIGNORE='&:l:ll:ls:[bf]g:su:exit'
+export HISTIGNORE='&:b:l:ll:ls:[bf]g:su:exit'
 
 # remove all previous lines matching the current line from the history list
 # before that line is saved
