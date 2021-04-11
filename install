@@ -87,3 +87,6 @@ else
         echo 'source ~/.files/tigrc' > ~/.tigrc
     fi
 fi
+
+# install git config include
+git config --global --add include.path '~/.files/gitconfig'
