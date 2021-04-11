@@ -215,6 +215,10 @@ alias ghi='git hist'
 # spawn detached gitk process showing all refs
 alias gk='gitk --all&'
 
+# execute a repository-specific script
+alias x='gt-do'
+alias xe='gt-do -e'
+
 # git message color
 gmc=36
 
