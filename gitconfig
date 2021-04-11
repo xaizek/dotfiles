@@ -33,4 +33,13 @@
     # use gvim to resolve merge conflicts
     tool = gvimdiff
 
+[diff "zs-diff"]
+    command = zs-diff --color
+
+[diff "zs-diff++"]
+    command = zs-diff --lang cxx --color
+
+[difftool "zs-gdiff"]
+    cmd = zs-gdiff $LOCAL $REMOTE
+
 # vim: set filetype=gitconfig :
