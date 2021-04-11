@@ -402,6 +402,8 @@ alias cal='cal -m'
 
 # don't print version information on launching gdb
 alias gdb='gdb -q'
+# run gdb specifying command-line to run
+alias gdba='gdb --args'
 
 # start mutt in browser screen
 alias mutt='mutt -y'
