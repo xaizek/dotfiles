@@ -127,6 +127,9 @@ alias gu='git add -u'
 # show list of branches
 alias gb='git branch'
 
+# rename a branch
+alias gm='git branch --move'
+
 # make a commit
 function gc()
 {
