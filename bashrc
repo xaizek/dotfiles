@@ -218,6 +218,9 @@ alias ghi='git hist'
 # spawn detached gitk process showing all refs
 alias gk='gitk --all&'
 
+# spawn detached gitk process showing all refs
+alias remotes='git remotes'
+
 # execute a repository-specific script
 alias x='gt-do'
 alias xe='gt-do -e'
