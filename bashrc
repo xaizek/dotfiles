@@ -425,6 +425,9 @@ complete -F _man h
 # colorize the grep command output for ease of use
 alias grep='grep --color=auto'
 
+# start calculator quietly and in math mode
+alias bc='bc --quiet --mathlib'
+
 # format mount command output in a table
 function mount()
 {
