@@ -631,22 +631,8 @@ fi
 # echoes full specification of the current branch
 function B()
 {
-    local CUR_DIR="$PWD"
-    while [ -n "$CUR_DIR" -a ! -d "${CUR_DIR}/.git" ]; do
-        if [ "$CUR_DIR" = '/' ]; then
-            break
-        fi
-        if [ "${CUR_DIR:1:3}" = ':/' -o "${CUR_DIR:1:3}" = ':' ]; then
-            break
-        fi
-
-        CUR_DIR=${CUR_DIR%/*}
-    done
-
-    if [ -d "${CUR_DIR}/.git" ]; then
-        local branch="$(<$CUR_DIR/.git/HEAD)"
-        echo -n "${branch#*: }"
-    fi
+    # `echo` is just to get rid of a newline
+    echo -n "$(git rev-parse --symbolic-full-name HEAD)"
 }
 
 # echoes basename of the current branch
