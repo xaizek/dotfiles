@@ -303,7 +303,8 @@ function rrebase()
 # push current branch to a remote (origin by default)
 function push()
 {
-    local current="$(basename $(git rev-parse --symbolic-full-name HEAD))"
+    local current="$(git rev-parse --symbolic-full-name HEAD)"
+    current="${current#*/*/}"
 
     if [ "$#" -eq "0" ]; then
         local remote='origin'
