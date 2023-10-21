@@ -41,6 +41,8 @@
         git config --local --add "remote.$1.push" refs/heads/master:refs/heads/main \n\
         git config --local branch.master.merge refs/heads/main \n\
     } && run
+    # to be used after cloning to get sane branch naming
+    tyrannize = !git branch --move main master && git enslave
 
 [color]
     # enable coloring of git output
