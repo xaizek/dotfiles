@@ -27,6 +27,20 @@
     append = commit -v --amend -C HEAD
     fix = !vim $(git-ls-files --unmerged | cut -f2 | uniq)
     pend = log origin/master..HEAD
+    # to be used if upstream suddenly renamed master branch
+    enslave = !run() { \n\
+        if [ -z "$1" ]";" then \n\
+            echo 'error: remote name must be provided as an argument' \n\
+            return 1 \n\
+        fi \n\
+        if [ "$#" -gt 1 ]";" then \n\
+            echo 'error: expected only one argument' \n\
+            return 1 \n\
+        fi \n\
+        git config --local --add "remote.$1.fetch" "+refs/heads/main:refs/remotes/$1/master" \n\
+        git config --local --add "remote.$1.push" refs/heads/master:refs/heads/main \n\
+        git config --local branch.master.merge refs/heads/main \n\
+    } && run
 
 [color]
     # enable coloring of git output
