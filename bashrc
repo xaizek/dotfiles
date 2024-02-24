@@ -86,7 +86,7 @@ alias G='gvim'
 # vim-like
 
 # vim-like short form of the make command
-alias mak='make'
+alias mak="ionice nice make --jobs=$(nproc) --load-average=$(nproc)"
 
 # vi-like commands to quit shell
 alias q='exit'
