@@ -1,9 +1,6 @@
 # do completion on one <tab> press, not two
 set show-all-if-ambiguous On
 
-# display input mode indicator in front of command line
-set show-mode-in-prompt On
-
 # disable any kind of bell (annoying on failed completion)
 set bell-style none
 
@@ -91,7 +88,13 @@ set keymap vi-command
 "\C-p": previous-history
 "\C-x\C-r": re-read-init-file
 
-# gdb looses ability to enable TUI in vi mode, so use in bash only
-$if Bash
-    set editing-mode vi
-$endif
+# gdb loses ability to enable TUI in vi mode, so use in bash only
+# $if Bash
+#     set editing-mode vi
+#     # display input mode indicator in front of command line
+#     set show-mode-in-prompt On
+# $endif
+
+# could never get used to vi mode for command-line editing, keeping key
+# definitions above for reference or if I'll give it another try
+set editing-mode emacs
