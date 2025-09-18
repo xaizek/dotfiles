@@ -1,3 +1,6 @@
+# system-wide configuration can contain useful stuff
+$include /etc/inputrc
+
 # do completion on one <tab> press, not two
 set show-all-if-ambiguous On
 
