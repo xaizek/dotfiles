@@ -31,17 +31,23 @@ else
     fi
 fi
 
-# compile .lesskey to get up-to-date version of .less
-if [ ~/.lesskey -nt ~/.less ]; then
-    if [ x"$OS" != x'Windows_NT' ]; then
-        lesskey
-    elif which lesskey > /dev/null 2>&1; then
-        lesskey -o ~/.less -- ./lesskey
+# compile .lesskey to get up-to-date version of .less unless less is new enough
+# to not need it
+less_ver=$(less --version | awk 'NR==1 { print $2; exit }')
+if [ "$less_ver" -lt 582 ]; then
+    if [ ~/.lesskey -nt ~/.less ]; then
+        if [ x"$OS" != x'Windows_NT' ]; then
+            lesskey
+        elif which lesskey > /dev/null 2>&1; then
+            lesskey -o ~/.less -- ./lesskey
+        else
+            echo 'Skipping generating ~/.less, lesskey not found ...'
+        fi
     else
-        echo 'Skipping generating ~/.less, lesskey not found ...'
+        echo "Skipping generating ~/.less, it's already up-to-date ..."
     fi
 else
-    echo "Skipping generating ~/.less, it's already up-to-date ..."
+    echo "Skipping generating ~/.less, less version >= 582 ..."
 fi
 
 # install .inputrc
