@@ -98,8 +98,10 @@ fi
 git config --global --add include.path '~/.files/gitconfig'
 
 # install gdb config include
-if grep --quiet 'source ~/.files/gdbinit' ~/.config/gdb/gdbinit; then
+if [ -f ~/.config/gdb/gdbinit ] &&
+    grep --quiet 'source ~/.files/gdbinit' ~/.config/gdb/gdbinit; then
     echo 'Skipping ~/.config/gdb/gdbinit ...'
 else
+    mkdir -p ~/.config/gdb/
     echo 'source ~/.files/gdbinit' >> ~/.config/gdb/gdbinit
 fi
