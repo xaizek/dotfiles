@@ -786,6 +786,22 @@ alias_completion
 unset -f alias_completion
 
 # ==============================================================================
+# binds
+
+# the bind won't work in non-interactive shell
+if [[ $- =~ .*i.* ]]; then
+    # insert name of the current branch on Ctrl-X+b
+    function _insert_branch() {
+        local prefix=${READLINE_LINE::READLINE_POINT}
+        local suffix=${READLINE_LINE:READLINE_POINT}
+        local branch=$(b)
+        READLINE_LINE=$prefix"$(b)"$suffix
+        READLINE_POINT=$(( READLINE_POINT + ${#branch} ))
+    }
+    bind -x '"\C-xb": _insert_branch'
+fi
+
+# ==============================================================================
 # sourcing guard end
 
 unset BASHRC_IS_LOADED
