@@ -130,6 +130,15 @@ alias gb='git branch'
 # rename a branch
 alias gm='git branch --move'
 
+# rebase-related
+alias rb='git rebase'
+alias rbi='git rebase --interactive'
+alias rba='git rebase --abort'
+alias rbc='git rebase --continue'
+alias rbe='git rebase --edit-todo'
+alias rbs='git rebase --skip'
+alias rbh='git rebase --show'
+
 # make a commit
 function gc()
 {
