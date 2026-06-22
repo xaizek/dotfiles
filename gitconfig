@@ -6,6 +6,20 @@
     pager = sed 's/\t/.       /g' | less -R
 
 [alias]
+    cp = cherry-pick
+    cpa = cherry-pick --abort
+    cpc = cherry-pick --continue
+    cps = cherry-pick --skip
+    cpn = cherry-pick -n
+
+    rb = rebase
+    rbi = rebase --interactive
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbe = rebase --edit-todo
+    rbs = rebase --skip
+    rbh = rebase --show
+
     co = checkout
     cob = checkout -b
     ci = commit -v
